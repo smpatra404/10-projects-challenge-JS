@@ -1,3 +1,5 @@
+const container = document.querySelector('.container');
+const result = document.querySelector('.result');
 const qns = document.getElementById('qns');
 const a = document.getElementById('a');
 const b = document.getElementById('b');
@@ -10,31 +12,31 @@ const d_lbl = document.getElementById('d_lbl');
 const btn = document.getElementById('btn');
 let qns_num = 0;
 let score = 0;
-let wrong_ans = 0;
+let attempts = 0;
 const qns_list = [
     {
-        'qns':'what is color of sky ?',
-        'a':'blue',
-        'b':'red',
-        'c':'green',
-        'd':'yellow',
-        'cor':'a'
+        qns: 'what is color of sky ?',
+        a: 'blue',
+        b: 'red',
+        c: 'green',
+        d: 'yellow',
+        cor: 'a'
     },
     {
-        'qns':'One plus one is how much ?',
-        'a':'1',
-        'b':'2',
-        'c':'3',
-        'd':'y4low',
-        'cor':'b'
+        qns: 'One plus one is how much ?',
+        a: '1',
+        b: '2',
+        c: '3',
+        d: '4',
+        cor: 'b'
     },
     {
-        'qns':'hahshh pl;lam;lus one is how much ?',
-        'a':'11',
-        'b':'24',
-        'c':'33',
-        'd':'y4111low',
-        'cor':'b'
+        qns: 'what is the color of water?',
+        a: 'blue',
+        b: 'green',
+        c: 'red',
+        d: 'none',
+        cor: 'd'
     }
 ];
 
@@ -44,26 +46,37 @@ function loadqns() {
     b_lbl.innerText = qns_list[qns_num].b
     c_lbl.innerText = qns_list[qns_num].c
     d_lbl.innerText = qns_list[qns_num].d
-    qns_num = qns_num + 1
 }
 function getans() {
-    document.querySelectorAll('input').forEach( input => {
-        if(input.checked){
-            return input.id
+    let answer = undefined
+    document.querySelectorAll('input').forEach(input => {
+        if (input.checked) {
+            answer = input.id
         }
     });
+    return answer
 }
 
-function main() {
-    //For 1st qns loading
-    console.log(qns_num)
-    if (qns_num = 0) {
-        loadqns;
-    } else {
-        loadqns
+if (qns_num == 0) {
+    loadqns();
+}
+
+btn.addEventListener('click', () => {
+    if (getans() == qns_list[qns_num].cor) {
+        if (qns_num + 1 < qns_list.length) {
+            score += 1;
+            qns_num = qns_num + 1;
+            loadqns();
+        }
+        else {
+            container.classList.add('hide');
+            result.innerText = 'Score : ' + (score + 1)
+                + ' , Attempts : ' + (attempts + 1);
+            result.classList.add('active');
+        }
     }
-}
-
-
-btn.addEventListener('click', main)
-
+    else {
+        alert('wrong ');
+    }
+    attempts += 1;
+})
