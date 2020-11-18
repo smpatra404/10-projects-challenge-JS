@@ -10,6 +10,7 @@ const b_lbl = document.getElementById('b_lbl');
 const c_lbl = document.getElementById('c_lbl');
 const d_lbl = document.getElementById('d_lbl');
 const btn = document.getElementById('btn');
+const radios = document.getElementsByName('option');
 let qns_num = 0;
 let score = 0;
 let attempts = 0;
@@ -66,6 +67,9 @@ btn.addEventListener('click', () => {
         if (qns_num + 1 < qns_list.length) {
             score += 1;
             qns_num = qns_num + 1;
+            radios.forEach((radio) => {
+                radio.checked = false;
+            });
             loadqns();
         }
         else {
