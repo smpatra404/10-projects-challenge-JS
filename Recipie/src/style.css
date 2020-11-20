@@ -64,7 +64,7 @@ body {
   background-color: red;
   border-radius: 5px;
   font-weight: bolder;
-  border: none;
+  outline: none;
 }
 
 .fav-section {
@@ -160,6 +160,10 @@ body {
   min-height: 30%;
   border-radius: 5px;
   color: red;
+  cursor: pointer;
+}
+.meal-name:hover {
+  background-color: rgb(192, 192, 192);
 }
 .heart-icon {
   position: absolute;
@@ -179,4 +183,61 @@ body {
 .heart-icon.clicked {
   color: red;
   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.details-page {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  padding: 20px;
+  padding-top: 70px;
+}
+.details-page.hide {
+  display: none;
+}
+#page-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 1.5rem;
+  outline: none;
+  transition: transform 0.3s ease-in-out;
+  padding: 5px;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+#overlay-image {
+  width: 90%;
+  max-height: 40%;
+  border-radius: 10px;
+}
+.about-meal {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.about-meal h4 {
+  color: red;
+}
+.about-meal p {
+  text-align: justify;
+  overflow-y: auto;
+  max-height: 200px;
+}
+.about-meal ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  list-style: none;
+  max-height: 120px;
+  overflow-x: auto;
+}
+.about-meal ul li {
+  padding: 2px;
 }
