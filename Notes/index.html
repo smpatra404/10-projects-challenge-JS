@@ -15,13 +15,38 @@
     <title>Notes | Home</title>
   </head>
   <body>
-    <div class="container">
-      <div class="header">
-        <h1>Hey Welcome, Add a Note !!!</h1>
+    <div class="wrapper">
+      <div class="container">
+        <div class="header">
+          <h1>Hey Welcome, Add a Note !!!</h1>
+        </div>
+        <div class="cards-container">
+          <div class="card-popup">
+            <i class="fa fa-times" aria-hidden="true"> </i>
+            <div></div>
+          </div>
+          <div class="card-form">
+            <h1>Heading :</h1>
+            <input id="form-heading" type="text" />
+
+            <h1>Description :</h1>
+            <textarea
+              name="Description"
+              id="form-body"
+              cols="30"
+              rows="10"
+            ></textarea>
+            <div>
+              <button>
+                <i id="form-check" class="fa fa-check" aria-hidden="true"></i>
+              </button>
+              <button type="reset">
+                <i id="form-trash" class="fa fa-trash" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-
-      <div class="cards-container"></div>
-
       <div class="add-icon">
         <i class="fa fa-plus" aria-hidden="true"></i>
       </div>
