@@ -7,9 +7,12 @@ const formheading_element = document.querySelector('#form-heading');
 const cardscontainer_elements = document.querySelector('.cards-container');
 const formbody_element = document.querySelector('#form-body');
 const cardpopup_element = document.querySelector('.card-popup');
+const h_insidepopup = document.querySelector('.card-popup h1');
+const p_insidepopup = document.querySelector('.card-popup p');
 let cards_list = [];
 let count = 0;
 let eyes = [];
+let cross = [];
 // handling addnotes click
 addnotesicon_element.addEventListener('click', () => {
     notesform_element.classList.toggle('active');
@@ -30,7 +33,7 @@ formcheck_element.addEventListener('click', () => {
               `+ heading + `
             </div>
             <div class="card-i">
-              <i class="fa fa-eye"></i>
+              <i id="eye`+ count + `" class="fa fa-eye"></i>
               <i class="fa fa-times" aria-hidden="true"></i>
             </div>`;
         notesform_element.classList.toggle('active');
@@ -43,27 +46,27 @@ formcheck_element.addEventListener('click', () => {
         formheading_element.value = '';
         formbody_element.value = '';
         count += 1;
+        eyes = [];
+        cross = [];
         eyes.push(note_card.querySelector('.fa.fa-eye'));
+        cross.push(note_card.querySelector('.fa.fa-times'));
     }
-    // eyes.forEach((eye) => {
-    //     eye.addEventListener('click', () => {
-    //         let idx = eye.parentElement.parentElement.id;
-    //         console.group(idx, 'aa');
-    //         let div = document.createElement('div');
-    //         div.innerHTML = `<h1>` + cards_list[idx].heading + `</h1> <p>` + cards_list[idx].body + `</p>`;
+    eyes.forEach((eye) => {
+        eye.addEventListener('click', () => {
+            let idx = eye.parentElement.parentElement.id;
+            h_insidepopup.innerText = cards_list[idx].heading;
+            p_insidepopup.innerText = cards_list[idx].body;
 
-    //         cardpopup_element.appendChild(div);
-    //         addnotes_element.classList.toggle('hide');
-    //         cardpopup_element.classList.toggle('active');
-    //     })
-    // })
-
-    // document.querySelectorAll('.card-i .fa.fa-times').forEach((x) => {
-    //     x.addEventListener('click', () => {
-    //         let id = x.parentElement.parentElement.id;
-    //         document.getElementById(id).remove();
-    //     })
-    // })
+            addnotes_element.classList.toggle('hide');
+            cardpopup_element.classList.toggle('active');
+        })
+    })
+    cross.forEach((x) => {
+        x.addEventListener('click', () => {
+            let id = x.parentElement.parentElement.id;
+            document.getElementById(id).remove();
+        })
+    })
 })
 
 // handling trash click on from
