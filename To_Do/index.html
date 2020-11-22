@@ -5,7 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
     <link rel="stylesheet" href="./src/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
     <script src="./src/index.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h2>Task's &ThinSpace;Tracker</h2>
+      </div>
+      <div class="body-container">
+        <div class="body-header">
+          <div class="body-heading">My Tasks</div>
+          <div class="view-type">
+            <div class="view-btn">
+              <i class="fa fa-th" aria-hidden="true"></i>
+            </div>
+            <div class="view-btn">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+        <div class="taskcards-container">
+          <div class="todo-card"></div>
+          <div class="todo-card">
+            <h2>Heading</h2>
+            <p>Count of to-dos</p>
+          </div>
+          <div class="todo-card">
+            <h1>Heading</h1>
+            <p>Count of to-dos</p>
+          </div>
+        </div>
+      </div>
+
+      <i id="plus-icon" class="fa fa-plus-circle" aria-hidden="true"></i>
+
+      <div class="todo-viewer">
+        <div class="viewer-header-container">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          <div class="viewer-header">
+            <h2>heading</h2>
+            <p>Count of tasks</p>
+          </div>
+        </div>
+        <div class="viewer-container">
+          <h2>Yet to be done :</h2>
+          <ul class="unfinished">
+            <li>
+              <input type="checkbox" />
+              <div>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere
+                amet
+              </div>
+              <i class="fa fa-trash" aria-hidden="true"></i>
+            </li>
+          </ul>
+          <h2>Resolved :</h2>
+          <ul class="finished">
+            <li>
+              <i class="fa fa-repeat" aria-hidden="true"></i>
+              <div>Onion</div>
+            </li>
+          </ul>
+        </div>
+        <div class="input-task">
+          <input type="text" id="inp-txt" />
+          <button id="add">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

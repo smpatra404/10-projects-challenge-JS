@@ -1,5 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+/* body stylling */
+body {
+  background-color: black;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  height: 100vh;
+  width: 100vw;
+  font-family: "Ubuntu", sans-serif;
+  position: absolute;
+}
+/* main container stylling */
+.container {
+  min-height: 600px;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+}
+/* header of the home page */
+.header {
+  overflow: hidden;
+  background-color: rebeccapurple;
+  color: #fff;
+  padding: 20px;
+  position: relative;
+}
+/* body container */
+.body-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  position: relative;
+  background-color: #c9cdcf;
+}
+/* body header */
+.body-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.body-heading {
+  font-size: 1.5rem;
+}
+.view-type {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 15px;
+  font-size: 1.5rem;
+  color: rgba(102, 51, 153, 0.7);
+}
+.view-type i:hover,
+.view-type i.clicked {
+  font-size: 1.7rem;
+  color: rebeccapurple;
+}
+/* stylling all the available task cards */
+.taskcards-container {
+  height: 532px;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-auto-rows: 125px;
+  gap: 13px 0px;
+}
+.todo-card {
+  height: 125px;
+  width: 150px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fafafa;
+}
+#plus-icon {
+  position: absolute;
+  right: 15px;
+  bottom: 15px;
+  border: none;
+  border-radius: 50%;
+  font-size: 3rem;
+  color: rebeccapurple;
+  outline: none;
+}
+/* Todo popup window */
+.todo-viewer {
+  position: absolute;
+  background-color: rgba(102, 51, 153, 1);
+  height: 100%;
+  width: 100%;
+  transform: translateX(-100vw);
+}
+.todo-viewer.active {
+  transform: translateX(0);
+}
+.viewer-header-container {
+  display: flex;
+  padding: 20px;
+  height: 12.5%;
+}
+.viewer-header-container i {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #fff;
+}
+.viewer-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  color: #fff;
+}
+.viewer-container {
+  height: 75%;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  overflow-y: auto;
+}
+.viewer-container h2 {
+  background-color: #fff;
+  padding: 15px;
+}
+.viewer-container li {
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.2rem;
+}
+.viewer-container li input {
+  min-width: 1.2rem;
+  min-height: 1.2rem;
+}
+.fa.fa-trash {
+  color: red;
+}
+.unfinished,
+.finished {
+  background-color: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 15px;
+}
+.finished li i {
+  color: rebeccapurple;
+}
+.finished li div {
+  text-decoration: line-through;
+}
+.input-task {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 12.5%;
+}
+#inp-txt {
+  height: 40px;
+  width: 250px;
+  border-radius: 7px;
+  outline: none;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+#add {
+  font-size: 2rem;
+  width: 50px;
+  border-radius: 7px;
+  outline: none;
+  background-color: rebeccapurple;
+  color: #fff;
 }
