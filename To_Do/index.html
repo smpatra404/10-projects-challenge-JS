@@ -15,9 +15,11 @@
   </head>
   <body>
     <div class="container">
+      <!-- heading of task app -->
       <div class="header">
         <h2>Task's &ThinSpace;Tracker</h2>
       </div>
+      <!-- contains all the tasks in card format -->
       <div class="body-container">
         <div class="body-header">
           <div class="body-heading">My Tasks</div>
@@ -31,20 +33,55 @@
           </div>
         </div>
         <div class="taskcards-container">
-          <div class="todo-card"></div>
           <div class="todo-card">
+            <i class="fa fa-trash" aria-hidden="true"></i>
             <h2>Heading</h2>
             <p>Count of to-dos</p>
           </div>
           <div class="todo-card">
-            <h1>Heading</h1>
+            <i class="fa fa-trash" aria-hidden="true"></i>
+            <h2>Heading</h2>
             <p>Count of to-dos</p>
           </div>
         </div>
       </div>
-
+      <!-- icon for adding new task -->
       <i id="plus-icon" class="fa fa-plus-circle" aria-hidden="true"></i>
-
+      <!-- add new task button -->
+      <div class="new-task">
+        <div class="new-task-header">
+          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          <h1>Create new Task</h1>
+        </div>
+        <div class="new-task-container">
+          <label for="task-heading">Heading : </label>
+          <input type="text" id="task-heading" />
+          <label for="task-names">Task Names : </label>
+          <div>
+            <input type="text" id="task-names" />
+            <i class="fa fa-check" aria-hidden="true"></i>
+          </div>
+        </div>
+        <ul class="new-task-list">
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
+            ratione voluptatem assumenda sit iusto earum nam praesentium, ad
+            delectus, ipsam dignissimos necessitatibus aliquam, in ducimus non
+            repellat fugiat quis voluptatum.
+          </li>
+          <li>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
+            quisquam nostrum recusandae aperiam fugiat ducimus molestias, optio
+            corrupti mollitia tenetur!
+          </li>
+          <li>c</li>
+        </ul>
+        <div class="new-task-buttons">
+          <button id="add-new-task">Add</button>
+          <button id="delete-new-task">Delete</button>
+        </div>
+      </div>
+      <!-- existing task viewer -->
       <div class="todo-viewer">
         <div class="viewer-header-container">
           <i class="fa fa-chevron-left" aria-hidden="true"></i>
@@ -75,7 +112,7 @@
         </div>
         <div class="input-task">
           <input type="text" id="inp-txt" />
-          <button id="add">
+          <button id="add-task" name="add-task">
             <i class="fa fa-plus" aria-hidden="true"></i>
           </button>
         </div>
