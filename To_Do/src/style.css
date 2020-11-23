@@ -23,6 +23,7 @@ body {
   display: flex;
   flex-direction: column;
   position: absolute;
+  overflow-x: hidden;
 }
 /* header of the home page */
 .header {
@@ -58,6 +59,7 @@ body {
   font-size: 1.5rem;
   color: rgba(102, 51, 153, 0.7);
 }
+
 .view-type i:hover,
 .view-type i.clicked {
   font-size: 1.7rem;
@@ -73,6 +75,9 @@ body {
   gap: 13px 0px;
   overflow-y: auto;
 }
+.taskcards-container.rowview {
+  grid-template-columns: 1fr;
+}
 .todo-card {
   height: 125px;
   width: 150px;
@@ -83,14 +88,19 @@ body {
   justify-content: center;
   align-items: center;
   background-color: #fafafa;
+  transition: all 0.2s ease-in-out;
+}
+.todo-card.rowview {
+  width: 300px;
 }
 .todo-card i {
+  text-align: end;
+  width: 100%;
   position: relative;
-  bottom: 25px;
-  left: 60px;
+  bottom: 20px;
 }
 /* add new notes icon */
-#plus-icon {
+#add-task-icon {
   position: absolute;
   right: 15px;
   bottom: 15px;
@@ -100,15 +110,22 @@ body {
   color: rebeccapurple;
   outline: none;
 }
+#add-task-icon:hover {
+  color: green;
+}
+#add-task-icon.hide {
+  display: none;
+}
 /* window for adding a new task */
 .new-task {
-  transform: translateX(-100vw);
+  transform: translateX(-50vw);
   position: absolute;
   height: 100%;
   width: 100%;
   background-color: #fff;
   display: flex;
   flex-direction: column;
+  transition: all 0.6s ease-in-out;
 }
 .new-task.active {
   transform: translateX(0);
@@ -119,12 +136,15 @@ body {
   height: 12.5%;
   background-color: rebeccapurple;
 }
-.new-task-header i {
+#new-task-back {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: #fff;
+}
+#new-task-back:hover {
+  color: red;
 }
 .new-task-header h1 {
   display: flex;
@@ -147,9 +167,21 @@ body {
   border-radius: 5px;
   font-size: 1.1rem;
 }
-.new-task-container i {
-  margin-left: 5px;
-  color: green;
+#new-task-check {
+  margin-left: 3px;
+  color: rebeccapurple;
+  padding: 3px;
+  border: 1px solid rebeccapurple;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+#new-task-check:hover {
+  background-color: rgb(197, 192, 192);
+}
+#new-task-check:active {
+  background-color: rebeccapurple;
+  color: #fff;
 }
 .new-task-list {
   padding-left: 50px;
@@ -162,6 +194,8 @@ body {
 }
 .new-task-list li {
   font-size: 1.2rem;
+  color: rebeccapurple;
+  font-weight: bold;
 }
 .new-task-buttons {
   display: flex;
@@ -170,8 +204,8 @@ body {
   padding: 20px;
   gap: 20px;
 }
-#add-new-task,
-#delete-new-task {
+#save-task,
+#delete-task {
   font-size: 1.2rem;
   padding: 5px;
   border-radius: 5px;

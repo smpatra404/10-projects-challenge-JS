@@ -24,10 +24,10 @@
         <div class="body-header">
           <div class="body-heading">My Tasks</div>
           <div class="view-type">
-            <div class="view-btn">
-              <i class="fa fa-th" aria-hidden="true"></i>
+            <div id="grid-view" class="view-btn">
+              <i class="fa fa-th clicked" aria-hidden="true"></i>
             </div>
-            <div class="view-btn">
+            <div id="row-view" class="view-btn">
               <i class="fa fa-bars" aria-hidden="true"></i>
             </div>
           </div>
@@ -46,11 +46,15 @@
         </div>
       </div>
       <!-- icon for adding new task -->
-      <i id="plus-icon" class="fa fa-plus-circle" aria-hidden="true"></i>
+      <i id="add-task-icon" class="fa fa-plus-circle" aria-hidden="true"></i>
       <!-- add new task button -->
       <div class="new-task">
         <div class="new-task-header">
-          <i class="fa fa-chevron-left" aria-hidden="true"></i>
+          <i
+            id="new-task-back"
+            class="fa fa-chevron-left"
+            aria-hidden="true"
+          ></i>
           <h1>Create new Task</h1>
         </div>
         <div class="new-task-container">
@@ -59,26 +63,18 @@
           <label for="task-names">Task Names : </label>
           <div>
             <input type="text" id="task-names" />
-            <i class="fa fa-check" aria-hidden="true"></i>
+            <i
+              id="new-task-check"
+              class="fa fa-check"
+              aria-hidden="true"
+              tabindex="0"
+            ></i>
           </div>
         </div>
-        <ul class="new-task-list">
-          <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit
-            ratione voluptatem assumenda sit iusto earum nam praesentium, ad
-            delectus, ipsam dignissimos necessitatibus aliquam, in ducimus non
-            repellat fugiat quis voluptatum.
-          </li>
-          <li>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis
-            quisquam nostrum recusandae aperiam fugiat ducimus molestias, optio
-            corrupti mollitia tenetur!
-          </li>
-          <li>c</li>
-        </ul>
+        <ul class="new-task-list"></ul>
         <div class="new-task-buttons">
-          <button id="add-new-task">Add</button>
-          <button id="delete-new-task">Delete</button>
+          <button id="save-task" tabindex="0">Save</button>
+          <button id="delete-task" tabindex="0">Delete</button>
         </div>
       </div>
       <!-- existing task viewer -->
