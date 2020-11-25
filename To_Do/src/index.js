@@ -134,11 +134,11 @@ savetask_element.addEventListener('click', () => {
             tasks: tasks_list
         });
         localStorage.setItem('task', JSON.stringify(tasks_tracker));
-        renderhome([{ heading: taskheading_value, tasks: tasks_list }]);
-        task_value = '';
-        tasks_list = [];
-        taskheading_element.value = '';
-        taskname_element.value = '';
+        location.reload();
+        // task_value = '';
+        // tasks_list = [];
+        // taskheading_element.value = '';
+        // taskname_element.value = '';
         tasklist_element.querySelectorAll('li').forEach((li) => {
             li.remove();
         });
