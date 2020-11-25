@@ -55,6 +55,7 @@ body {
 .view-type {
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
   gap: 15px;
   font-size: 1.5rem;
   color: rgba(102, 51, 153, 0.7);
@@ -94,12 +95,16 @@ body {
 .todo-card.rowview {
   width: 300px;
 }
-.todo-card i {
+.trash-container {
   text-align: end;
   width: 100%;
   position: relative;
   bottom: 27%;
 }
+.trash-container i:active {
+  color: rebeccapurple;
+}
+
 .todo-card p {
   font-size: 0.7rem;
 }
@@ -222,6 +227,7 @@ body {
   height: 100%;
   width: 100%;
   transform: translateX(-100vw);
+  transition: all 0.6s ease-in-out;
 }
 .todo-viewer.active {
   transform: translateX(0);
@@ -231,12 +237,15 @@ body {
   padding: 20px;
   height: 12.5%;
 }
-.viewer-header-container i {
+#viewer-back {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
   color: #fff;
+}
+#viewer-back:hover {
+  color: red;
 }
 .viewer-header {
   display: flex;
@@ -279,6 +288,18 @@ body {
   flex-direction: column;
   list-style: none;
   padding: 15px;
+  transition: all 1s ease-in-out;
+}
+.finished li,
+.unfinished li {
+  transition: all 0.3s linear;
+}
+.unfinished li div {
+  width: 237px;
+}
+.unfinished li:hover {
+  background-color: rgba(116, 24, 207, 0.7);
+  color: white;
 }
 .finished li i {
   color: rebeccapurple;

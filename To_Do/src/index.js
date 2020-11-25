@@ -17,21 +17,91 @@ function renderhome(taskslist) {
         } else {
             task_heading = "Unnamed Task";
         }
-        let tasks_number = task.tasks.length;
+        let tasks_number = task.unfinished_tasks.length;
         let task_card = document.createElement('div');
         task_card.className = 'todo-card';
         task_card.id = count;
-        task_card.innerHTML = `<i class="fa fa-trash" aria-hidden="true"></i>
-                            <h3>${task_heading}</h3>
-                            <p>Number of tasks : ${tasks_number}</p>`;
+        task_card.innerHTML = `<div class="trash-container">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                </div>
+                                <h3>${task_heading}</h3>
+                                <p>Remaining tasks : ${tasks_number}</p>`;
         taskscontainer_element.appendChild(task_card);
         count += 1;
     });
 }
+// viewing existing tasks
+const taskviewer_element = document.querySelector('.todo-viewer');
+const headingviewer_element = document.querySelector('.viewer-header h2');
+const countviewer_element = document.querySelector('.viewer-header p');
+const unfinishedtasks_element = document.querySelector('.unfinished');
+const finishedtasks_element = document.querySelector('.finished');
+function addtoUnfinishedlist(tasks, element) {
+    tasks.map((ut) => {
+        let li = document.createElement('li');
+        li.innerHTML = `
+                <input type="checkbox" />
+                 <div>
+                    ${ut}
+                    </div>
+                <i class="fa fa-trash" aria-hidden="true"></i>`;
+        element.appendChild(li);
+    });
+}
+function addtoFinishedlist(tasks, element) {
+    tasks.map((ut) => {
+        let li = document.createElement('li');
+        li.innerHTML = `
+              <i class="fa fa-check" aria-hidden="true"></i>
+                 <div>
+                    ${ut}
+                    </div>`;
+        element.appendChild(li);
+    });
+}
+function rendertask(e, task) {
+    let idx = undefined;
+    if (e.target != task.querySelector('i')) {
+        if (e.target == task) {
+            idx = task.id;
+        } else {
+            idx = e.target.parentElement.id;
+        }
+        headingviewer_element.innerText = tasks_tracker[idx].heading;
+        countviewer_element.innerText = 'Unfinshed tasks : ' + tasks_tracker[idx].unfinished_tasks.length;
+        let unfinished_tasks = tasks_tracker[idx].unfinished_tasks;
+        let finished_tasks = tasks_tracker[idx].finished_tasks;
+        if (unfinished_tasks.length) {
+            addtoUnfinishedlist(unfinished_tasks, unfinishedtasks_element);
+        }
+        if (finished_tasks.length) {
+            addtoFinishedlist(finished_tasks, finishedtasks_element);
+        }
+        unfinishedtasks_element.querySelectorAll('li input').forEach((l) => {
+            l.addEventListener('change', () => {
+                if (l.checked) {
+                    addtoFinishedlist([l.nextElementSibling.innerText], finishedtasks_element);
+                    l.parentElement.remove();
+                }
+            });
+        });
+        taskviewer_element.classList.add('active');
+    }
+}
+document.querySelectorAll('.todo-card').forEach((t) => {
+    t.addEventListener('click', (e) => {
+        rendertask(e, t);
+    });
+});
+// back button in viewer mode
+const backviewer_element = document.querySelector('#viewer-back');
+backviewer_element.addEventListener('click', () => {
+    taskviewer_element.classList.remove('active');
+});
 // deleting task cards from home page
 document.querySelectorAll('.todo-card i').forEach((t) => {
     t.addEventListener('click', () => {
-        tasks_tracker.splice(t.parentElement.id, 1);
+        tasks_tracker.splice(t.parentElement.parentElement.id, 1);
         localStorage.setItem('task', JSON.stringify(tasks_tracker));
         location.reload();
     });
@@ -131,7 +201,8 @@ savetask_element.addEventListener('click', () => {
     if (tasks_list.length > 0) {
         tasks_tracker.push({
             heading: taskheading_value,
-            tasks: tasks_list
+            unfinished_tasks: tasks_list,
+            finished_tasks: [],
         });
         localStorage.setItem('task', JSON.stringify(tasks_tracker));
         location.reload();
