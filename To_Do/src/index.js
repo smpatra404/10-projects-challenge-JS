@@ -135,10 +135,6 @@ savetask_element.addEventListener('click', () => {
         });
         localStorage.setItem('task', JSON.stringify(tasks_tracker));
         location.reload();
-        // task_value = '';
-        // tasks_list = [];
-        // taskheading_element.value = '';
-        // taskname_element.value = '';
         tasklist_element.querySelectorAll('li').forEach((li) => {
             li.remove();
         });
