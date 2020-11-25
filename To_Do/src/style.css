@@ -89,6 +89,7 @@ body {
   align-items: center;
   background-color: #fafafa;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 .todo-card.rowview {
   width: 300px;
@@ -97,7 +98,10 @@ body {
   text-align: end;
   width: 100%;
   position: relative;
-  bottom: 20px;
+  bottom: 27%;
+}
+.todo-card p {
+  font-size: 0.7rem;
 }
 /* add new notes icon */
 #add-task-icon {
