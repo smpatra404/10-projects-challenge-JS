@@ -92,6 +92,12 @@ body {
   transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
+.todo-card.finished {
+  background-color: rgb(32, 180, 32);
+  color: white;
+  height: 125px;
+  width: 150px;
+}
 .todo-card.rowview {
   width: 300px;
 }
