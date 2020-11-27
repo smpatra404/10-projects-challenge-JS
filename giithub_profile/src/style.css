@@ -1,7 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #6952f9;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 body {
   background-color: #81a5da;
@@ -10,6 +31,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: "Ubuntu", sans-serif;
 }
 .container {
   background-color: #1d1a36;
@@ -74,4 +96,18 @@ body {
   border-radius: 7px;
   text-align: center;
   width: 80%;
+}
+.repos {
+  width: 270px;
+  height: 130px;
+}
+ul {
+  height: 110px;
+  padding-top: 10px;
+  list-style: none;
+  overflow-y: auto;
+}
+li {
+  width: 250px;
+  word-wrap: break-word;
 }
