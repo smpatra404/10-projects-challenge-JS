@@ -51,5 +51,10 @@ body {
 .details {
   display: grid;
   place-content: center;
+  grid-template-columns: 1fr 1fr;
+  padding: 30px;
   height: 150px;
+}
+#weather-icon {
+  height: 86px;
 }
